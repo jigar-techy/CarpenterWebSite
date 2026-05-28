@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { useMemo, useState } from "react"
 import { HiCalculator } from "react-icons/hi"
 import { PROJECT_TYPES, WOOD_TYPES } from "../data/siteData"
@@ -107,9 +108,15 @@ export default function QuoteEstimator() {
               <p className="text-wood-300 text-sm mb-1">
                 Estimated area: {estimate.area.toFixed(1)} m²
               </p>
-              <p className="font-display text-3xl sm:text-4xl font-bold text-accent">
+              <motion.p
+                key={`${estimate.low}-${estimate.high}`}
+                initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                className="font-display text-3xl sm:text-4xl font-bold text-accent"
+              >
                 ${estimate.low.toLocaleString()} – ${estimate.high.toLocaleString()}
-              </p>
+              </motion.p>
               <p className="text-wood-400 text-xs mt-2">USD · indicative range only</p>
               <button
                 type="button"

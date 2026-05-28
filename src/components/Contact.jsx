@@ -95,7 +95,7 @@ export default function Contact() {
               loading="lazy"
             />
             {[
-              { icon: HiPhone, label: "Phone", value: BRAND.phone, href: `tel:${BRAND.phone.replace(/\D/g, "")}` },
+              { icon: HiPhone, label: "Phone", value: BRAND.phoneRaw, href: `tel:+91${BRAND.phoneRaw}` },
               { icon: HiMail, label: "Email", value: BRAND.email, href: `mailto:${BRAND.email}` },
               { icon: HiLocationMarker, label: "Address", value: BRAND.address },
               { icon: HiClock, label: "Hours", value: BRAND.hours },

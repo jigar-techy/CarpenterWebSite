@@ -1,10 +1,11 @@
 export const BRAND = {
   name: "MasterWood",
   tagline: "Fine Carpentry & Custom Woodwork",
-  phone: "+1 (555) 234-7890",
+  phone: "+91 63593 40011",
+  phoneRaw: "6359340011",
   email: "hello@masterwood.com",
   address: "124 Oak Workshop Lane, Portland, OR 97201",
-  whatsapp: "15552347890",
+  whatsapp: "916359340011",
   hours: "Mon–Sat: 8:00 AM – 6:00 PM",
 }
 
