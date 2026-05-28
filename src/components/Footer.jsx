@@ -50,7 +50,11 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <ul className="space-y-2 text-sm">
-            <li>{BRAND.phone}</li>
+            <li>
+              <a href={`tel:+91${BRAND.phoneRaw}`} className="hover:text-accent transition-colors">
+                {BRAND.phoneRaw}
+              </a>
+            </li>
             <li>{BRAND.email}</li>
             <li>{BRAND.address}</li>
           </ul>
