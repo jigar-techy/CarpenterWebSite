@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
+import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import { BRAND, NAV_LINKS } from "../data/siteData"
 import { scrollToSection } from "../hooks/useScrollSpy"
 
@@ -17,16 +17,22 @@ export default function Footer() {
           </div>
           <p className="text-sm leading-relaxed">{BRAND.tagline}</p>
           <div className="flex gap-3 mt-6">
-            {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="p-2.5 rounded-lg bg-wood-800 text-wood-300 hover:bg-accent hover:text-wood-900 transition-colors"
-                aria-label="Social link"
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
+            <a
+              href="#"
+              className="p-2.5 rounded-lg bg-wood-800 text-wood-300 hover:bg-accent hover:text-wood-900 transition-colors"
+              aria-label="Facebook"
+            >
+              <FaFacebookF className="w-4 h-4" />
+            </a>
+            <a
+              href={BRAND.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-lg bg-wood-800 text-wood-300 hover:bg-accent hover:text-wood-900 transition-colors"
+              aria-label="Instagram — Brahmani Furniture"
+            >
+              <FaInstagram className="w-4 h-4" />
+            </a>
           </div>
         </div>
 

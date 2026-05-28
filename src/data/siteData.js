@@ -7,6 +7,8 @@ export const BRAND = {
   address: "124 Oak Workshop Lane, Portland, OR 97201",
   whatsapp: "916359340011",
   hours: "Mon–Sat: 8:00 AM – 6:00 PM",
+  instagram:
+    "https://www.instagram.com/brahamanifurniture",
 }
 
 export const NAV_LINKS = [
