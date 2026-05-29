@@ -6,10 +6,11 @@ import {
   HiClock,
   HiCheck,
 } from "react-icons/hi"
-import { BRAND } from "../data/siteData"
+import { BRAND, CONTACT_IMAGE } from "../data/siteData"
+import OptimizedImage from "./OptimizedImage"
 import ScrollReveal from "./ScrollReveal"
 
-const STORAGE_KEY = "masterwood_contact_draft"
+const STORAGE_KEY = "brahamani_contact_draft"
 
 const initialForm = {
   name: "",
@@ -88,16 +89,16 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-5 gap-12">
           <ScrollReveal className="lg:col-span-2 space-y-6">
-            <img
-              src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&q=80"
+            <OptimizedImage
+              src={CONTACT_IMAGE}
               alt="Wood workshop"
-              className="rounded-2xl w-full h-48 object-cover hidden lg:block"
-              loading="lazy"
+              wrapperClassName="hidden lg:block w-full h-48 rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl"
             />
             {[
               { icon: HiPhone, label: "Phone", value: BRAND.phoneRaw, href: `tel:+91${BRAND.phoneRaw}` },
               { icon: HiMail, label: "Email", value: BRAND.email, href: `mailto:${BRAND.email}` },
-              { icon: HiLocationMarker, label: "Address", value: BRAND.address },
+              { icon: HiLocationMarker, label: "Address", value: BRAND.address, href: BRAND.mapsUrl },
               { icon: HiClock, label: "Hours", value: BRAND.hours },
             ].map(({ icon: Icon, label, value, href }) => (
               <div
@@ -114,6 +115,9 @@ export default function Contact() {
                   {href ? (
                     <a
                       href={href}
+                      {...(href.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="font-medium text-wood-800 dark:text-white hover:text-accent transition-colors"
                     >
                       {value}
@@ -128,10 +132,11 @@ export default function Contact() {
             <div className="rounded-xl overflow-hidden h-48 border border-wood-200 dark:border-wood-700">
               <iframe
                 title="Workshop location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2874.387!2d-122.6765!3d45.5231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDMxJzIzLjIiTiAxMjLCsDQwJzM1LjQiVw!5e0!3m2!1sen!2sus!4v1"
+                src={BRAND.mapsEmbed}
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               />
             </div>
           </ScrollReveal>

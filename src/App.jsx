@@ -12,19 +12,21 @@ import Footer from "./components/Footer"
 import BackToTop from "./components/BackToTop"
 import WhatsAppButton from "./components/WhatsAppButton"
 import { BRAND } from "./data/siteData"
+import { useSiteImagePreload } from "./hooks/useSiteImagePreload"
 
 function App() {
+  useSiteImagePreload()
   const [dark, setDark] = useState(() => {
     if (typeof window === "undefined") return false
     return (
-      localStorage.getItem("masterwood_theme") === "dark" ||
+      localStorage.getItem("brahamani_theme") === "dark" ||
       window.matchMedia("(prefers-color-scheme: dark)").matches
     )
   })
 
   useEffect(() => {
     document.body.classList.toggle("dark", dark)
-    localStorage.setItem("masterwood_theme", dark ? "dark" : "light")
+    localStorage.setItem("brahamani_theme", dark ? "dark" : "light")
   }, [dark])
 
   useEffect(() => {
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <>
-      <Navbar dark={dark} onToggleTheme={() => setDark((d) => !d)} />
+      <Navbar dark={dark} />
       <main>
         <Hero />
         <Stats />

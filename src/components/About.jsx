@@ -1,6 +1,8 @@
 import { motion } from "framer-motion"
 import { HiCheckCircle } from "react-icons/hi"
+import { ABOUT_IMAGES } from "../data/siteData"
 import { slideFromLeft, slideFromRight } from "../utils/motion"
+import OptimizedImage from "./OptimizedImage"
 import ScrollReveal from "./ScrollReveal"
 
 const HIGHLIGHTS = [
@@ -23,15 +25,17 @@ export default function About() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
-            <motion.img
-              src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80"
+            <OptimizedImage
+              src={ABOUT_IMAGES.main}
               alt="Master carpenter at work in workshop"
-              className="rounded-2xl shadow-2xl w-full aspect-[4/5] object-cover"
-              loading="lazy"
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              wrapperClassName="w-full aspect-[4/5] rounded-2xl shadow-2xl"
+              className="w-full h-full object-cover rounded-2xl"
+              motionProps={{
+                initial: { clipPath: "inset(0 100% 0 0)" },
+                whileInView: { clipPath: "inset(0 0% 0 0)" },
+                viewport: { once: true },
+                transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
+              }}
             />
             <motion.div
               className="absolute -bottom-6 -right-4 sm:right-6 bg-accent text-wood-900 p-6 rounded-xl shadow-xl max-w-[200px]"
@@ -57,7 +61,7 @@ export default function About() {
           </ScrollReveal>
           <ScrollReveal delay={100} variant={slideFromRight}>
             <p className="text-wood-600 dark:text-wood-300 leading-relaxed mb-4">
-              At MasterWood, we believe every piece of wood has a story. Our team
+              At Brahamani Furniture Shop, we believe every piece of wood has a story. Our team
               of skilled artisans combines time-honored joinery techniques with
               contemporary design to create furniture and interiors that last
               generations.
@@ -84,13 +88,15 @@ export default function About() {
                 </motion.li>
               ))}
             </ul>
-            <motion.img
-              src="https://images.unsplash.com/photo-1572981779304-38b01c2e5e0a?w=600&q=80"
+            <OptimizedImage
+              src={ABOUT_IMAGES.tools}
               alt="Woodworking tools and materials"
-              className="rounded-xl w-full h-40 object-cover"
-              loading="lazy"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.35 }}
+              wrapperClassName="w-full h-40 rounded-xl"
+              className="w-full h-full object-cover rounded-xl"
+              motionProps={{
+                whileHover: { scale: 1.03 },
+                transition: { duration: 0.35 },
+              }}
             />
           </ScrollReveal>
         </div>

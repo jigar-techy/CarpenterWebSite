@@ -3,6 +3,7 @@ import { useMemo, useState } from "react"
 import { HiX, HiChevronLeft, HiChevronRight, HiSearch } from "react-icons/hi"
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from "../data/siteData"
 import { ease } from "../utils/motion"
+import OptimizedImage from "./OptimizedImage"
 import ScrollReveal from "./ScrollReveal"
 
 const gridItem = {
@@ -120,13 +121,15 @@ export default function Gallery() {
                     whileHover={{ y: -6 }}
                     transition={{ type: "spring", stiffness: 400, damping: 22 }}
                   >
-                    <motion.img
+                    <OptimizedImage
                       src={item.image}
                       alt={item.title}
+                      wrapperClassName="w-full h-full"
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.45 }}
+                      motionProps={{
+                        whileHover: { scale: 1.08 },
+                        transition: { duration: 0.45 },
+                      }}
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-wood-900/90 via-transparent to-transparent flex flex-col justify-end p-5 text-left"
@@ -192,6 +195,8 @@ export default function Gallery() {
                 src={filtered[lightbox].image}
                 alt={filtered[lightbox].title}
                 className="w-full max-h-[80vh] object-contain rounded-lg"
+                loading="eager"
+                decoding="async"
                 initial={{ x: 40, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.4, ease }}
