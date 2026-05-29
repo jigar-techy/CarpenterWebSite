@@ -1,28 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+<svg viewBox="0 0 108 60" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3D2314"/>
-      <stop offset="1" stop-color="#1A0F0A"/>
+    <linearGradient id="gold" x1="20" y1="2" x2="20" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E4A8"/>
+      <stop offset="0.35" stop-color="#E8C06A"/>
+      <stop offset="0.7" stop-color="#C49A3C"/>
+      <stop offset="1" stop-color="#8B6914"/>
     </linearGradient>
-    <linearGradient id="gold" x1="18" y1="14" x2="46" y2="50" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E8C99A"/>
-      <stop offset="1" stop-color="#C4A574"/>
+    <linearGradient id="silver" x1="76" y1="2" x2="76" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.35" stop-color="#D8D8D8"/>
+      <stop offset="0.7" stop-color="#9A9A9A"/>
+      <stop offset="1" stop-color="#4A4A4A"/>
     </linearGradient>
-    <linearGradient id="wood" x1="20" y1="20" x2="44" y2="48" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#A67C52"/>
-      <stop offset="1" stop-color="#8B5E3C"/>
+    <linearGradient id="shine" x1="0" y1="0" x2="108" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="white" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
-  <rect x="4" y="4" width="56" height="56" rx="14" stroke="#D4A574" stroke-opacity="0.15" stroke-width="1"/>
-  <!-- Chair back forming stylized B -->
-  <path
-    d="M20 46V18c0-2.2 1.8-4 4-4h8c6.6 0 12 5.4 12 12s-5.4 12-12 12h-4v12h-8V46zm8-20h4c4.4 0 8-3.6 8-8s-3.6-8-8-8h-4v16z"
-    fill="url(#gold)"
-  />
-  <!-- Shelf / tabletop accent -->
-  <path d="M16 46h32" stroke="url(#wood)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M18 50h28" stroke="#D4A574" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-  <!-- Dovetail detail -->
-  <path d="M44 22l4 3-4 3" stroke="#E8D5B5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <path fill="url(#gold)" d="M6 4h14c11 0 18 5 18 12 0 5-3 9-9 11 7 1 12 6 12 13 0 9-8 16-21 16H6V4zm12 8v10h6c5 0 8-3 8-7s-3-7-8-7h-6zm0 20v16h7c7 0 11-4 11-9s-4-9-11-9h-7z"/>
+  <path fill="url(#silver)" d="M46 4h42v10H58v14h26v10H58v22H46V4z"/>
+  <rect x="6" y="4" width="82" height="52" rx="2" fill="url(#shine)"/>
 </svg>

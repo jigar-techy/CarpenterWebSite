@@ -3,21 +3,22 @@ export const BRAND = {
   shortName: "Brahamani",
   subtitle: "Furniture Shop",
   tagline: "Handcrafted Furniture & Custom Woodwork",
-  phone: "+91 63593 40011",
-  phoneRaw: "6359340011",
+  phone: "+91 98254 57053",
+  phoneRaw: "9825457053",
   email: "hello@brahamanifurniture.com",
   address: "Shree Brahamani Furniture Mart, Bharat Nagar, Gandhidham, Kutch, Gujarat 370210, India",
   mapsUrl: "https://maps.app.goo.gl/DXmgumf9qBPQyjbs9",
   mapsEmbed:
     "https://maps.google.com/maps?q=Shree+Brahamani+Furniture+Mart,+Gandhidham,+Gujarat+370210&hl=en&z=16&output=embed",
-  whatsapp: "916359340011",
+  whatsapp: "919825457053",
   hours: "All Days 9:00 AM – 7:00 PM Exclude Amavasya",
   instagram:
     "https://www.instagram.com/brahamanifurniture",
+  logo: "/logo.png",
 }
 
 export const ABOUT_IMAGES = {
-  main: "/images/about-main.webp",
+  main: "/images/about-main.png",
   tools: "/images/about-tools.webp",
 }
 

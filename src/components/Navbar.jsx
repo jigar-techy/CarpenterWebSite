@@ -5,6 +5,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import { BRAND, NAV_LINKS } from "../data/siteData"
 import { scrollToSection, useScrollSpy } from "../hooks/useScrollSpy"
 import { navItem } from "../utils/motion"
+import Logo from "./Logo"
 
 export default function Navbar({ dark }) {
   const [open, setOpen] = useState(false)
@@ -57,11 +58,7 @@ export default function Navbar({ dark }) {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
-          <img
-            src="/logo.svg"
-            alt={`${BRAND.shortName} logo`}
-            className="h-10 w-10 rounded-xl object-cover ring-2 ring-wood-300/50 group-hover:ring-accent transition-all"
-          />
+          <Logo size="h-11 w-11" title={`${BRAND.shortName} logo`} />
           <div className="text-left hidden sm:block">
             <span className={`font-display text-lg font-bold tracking-tight leading-tight ${brandText}`}>
               {BRAND.shortName}

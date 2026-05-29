@@ -27,7 +27,7 @@ export default function About() {
           >
             <OptimizedImage
               src={ABOUT_IMAGES.main}
-              alt="Master carpenter at work in workshop"
+              alt="Craftsman at Brahamani Furniture workshop"
               wrapperClassName="w-full aspect-[4/5] rounded-2xl shadow-2xl"
               className="w-full h-full object-cover rounded-2xl"
               motionProps={{

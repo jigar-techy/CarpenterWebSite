@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import { BRAND, NAV_LINKS } from "../data/siteData"
 import { scrollToSection } from "../hooks/useScrollSpy"
+import Logo from "./Logo"
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,7 +11,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src="/logo.svg" alt={`${BRAND.shortName} logo`} className="h-10 w-10 rounded-xl" />
+            <Logo size="h-11 w-11" title={`${BRAND.shortName} logo`} />
             <span className="font-display text-lg font-bold text-white leading-tight">
               {BRAND.shortName}
             </span>
