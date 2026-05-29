@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import { BRAND, NAV_LINKS } from "../data/siteData"
 import { scrollToSection } from "../hooks/useScrollSpy"
+import Logo from "./Logo"
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,9 +11,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src="/logo.png" alt="" className="h-10 w-10 rounded-lg" />
-            <span className="font-display text-xl font-bold text-white">
-              {BRAND.name}
+            <Logo size="h-11 w-11" title={`${BRAND.shortName} logo`} />
+            <span className="font-display text-lg font-bold text-white leading-tight">
+              {BRAND.shortName}
             </span>
           </div>
           <p className="text-sm leading-relaxed">{BRAND.tagline}</p>
@@ -29,7 +30,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-lg bg-wood-800 text-wood-300 hover:bg-accent hover:text-wood-900 transition-colors"
-              aria-label="Instagram — Brahmani Furniture"
+              aria-label="Instagram — Brahamani Furniture Shop"
             >
               <FaInstagram className="w-4 h-4" />
             </a>
@@ -62,7 +63,16 @@ export default function Footer() {
               </a>
             </li>
             <li>{BRAND.email}</li>
-            <li>{BRAND.address}</li>
+            <li>
+              <a
+                href={BRAND.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                {BRAND.address}
+              </a>
+            </li>
           </ul>
         </div>
 

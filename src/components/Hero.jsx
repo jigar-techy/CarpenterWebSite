@@ -1,15 +1,25 @@
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { HiArrowDown, HiPhone } from "react-icons/hi"
-import { BRAND, HERO_IMAGES } from "../data/siteData"
+import { BRAND, HERO_IMAGES, HERO_PLACEHOLDERS } from "../data/siteData"
 import { scrollToSection } from "../hooks/useScrollSpy"
 import { ease, fadeUp } from "../utils/motion"
+import { preloadImage } from "../utils/images"
 import AnimatedText from "./AnimatedText"
 import FloatingOrbs from "./FloatingOrbs"
 import MagneticButton from "./MagneticButton"
 
 export default function Hero() {
   const [slide, setSlide] = useState(0)
+  const [loadedSlides, setLoadedSlides] = useState({})
+
+  useEffect(() => {
+    HERO_IMAGES.forEach((src, i) => {
+      preloadImage(src)
+        .then(() => setLoadedSlides((prev) => ({ ...prev, [i]: true })))
+        .catch(() => setLoadedSlides((prev) => ({ ...prev, [i]: true })))
+    })
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,19 +33,34 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={slide}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${HERO_IMAGES[slide]})` }}
-            initial={{ opacity: 0, scale: 1.12 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease }}
+      <div className="absolute inset-0 bg-wood-800">
+        {/* Instant LQIP — tiny local WebP (~400 bytes) */}
+        <img
+          src={HERO_PLACEHOLDERS[slide]}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover scale-110 blur-md"
+        />
+
+        {/* All slides kept in DOM — no re-fetch on slide change */}
+        {HERO_IMAGES.map((src, i) => (
+          <motion.img
+            key={src}
+            src={src}
+            alt=""
             aria-hidden
+            fetchPriority={i === 0 ? "high" : "low"}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding={i === 0 ? "sync" : "async"}
+            className="absolute inset-0 w-full h-full object-cover"
+            animate={{
+              opacity: slide === i && loadedSlides[i] ? 1 : 0,
+              scale: slide === i ? 1 : 1.04,
+            }}
+            transition={{ duration: 0.7, ease }}
           />
-        </AnimatePresence>
+        ))}
+
         <div className="absolute inset-0 bg-gradient-to-b from-wood-800/70 via-wood-700/55 to-wood-100/30 z-10" />
         <div className="absolute inset-0 wood-grain z-[11] opacity-30" aria-hidden />
       </div>

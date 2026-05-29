@@ -1,15 +1,28 @@
 export const BRAND = {
-  name: "MasterWood",
-  tagline: "Fine Carpentry & Custom Woodwork",
-  phone: "+91 63593 40011",
-  phoneRaw: "6359340011",
-  email: "hello@masterwood.com",
-  address: "124 Oak Workshop Lane, Portland, OR 97201",
-  whatsapp: "916359340011",
-  hours: "Mon–Sat: 8:00 AM – 6:00 PM",
+  name: "Brahamani Furniture Shop",
+  shortName: "Brahamani",
+  subtitle: "Furniture Shop",
+  tagline: "Handcrafted Furniture & Custom Woodwork",
+  phone: "+91 98254 57053",
+  phoneRaw: "9825457053",
+  email: "hello@brahamanifurniture.com",
+  address: "Shree Brahamani Furniture Mart, Bharat Nagar, Gandhidham, Kutch, Gujarat 370210, India",
+  mapsUrl: "https://maps.app.goo.gl/DXmgumf9qBPQyjbs9",
+  mapsEmbed:
+    "https://maps.google.com/maps?q=Shree+Brahamani+Furniture+Mart,+Gandhidham,+Gujarat+370210&hl=en&z=16&output=embed",
+  whatsapp: "919825457053",
+  hours: "All Days 9:00 AM – 7:00 PM Exclude Amavasya",
   instagram:
     "https://www.instagram.com/brahamanifurniture",
+  logo: "/logo.png",
 }
+
+export const ABOUT_IMAGES = {
+  main: "/images/about-main.png",
+  tools: "/images/about-tools.webp",
+}
+
+export const CONTACT_IMAGE = "/images/contact.webp"
 
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -19,10 +32,33 @@ export const NAV_LINKS = [
   { id: "contact", label: "Contact" },
 ]
 
+/** Local WebP assets — served from same origin for instant loading */
 export const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1920&q=80",
-  "https://images.unsplash.com/photo-1589939705382-701eca4c7940?w=1920&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
+  "/images/hero-1.webp",
+  "/images/hero-2.webp",
+  "/images/hero-3.webp",
+]
+
+export const HERO_PLACEHOLDERS = [
+  "/images/hero-1-tiny.webp",
+  "/images/hero-2-tiny.webp",
+  "/images/hero-3-tiny.webp",
+]
+
+/** All site images — preloaded after first paint */
+export const ALL_IMAGES = [
+  ...HERO_IMAGES,
+  ...HERO_PLACEHOLDERS,
+  ABOUT_IMAGES.main,
+  ABOUT_IMAGES.tools,
+  CONTACT_IMAGE,
+  "/images/service-furniture.webp",
+  "/images/service-kitchen.webp",
+  "/images/service-interior.webp",
+  "/images/service-doors.webp",
+  "/images/service-repair.webp",
+  "/images/service-commercial.webp",
+  ...Array.from({ length: 9 }, (_, i) => `/images/gallery-${i + 1}.webp`),
 ]
 
 export const STATS = [
@@ -38,8 +74,7 @@ export const SERVICES = [
     title: "Custom Furniture",
     description:
       "Handcrafted tables, chairs, beds, and storage built to your exact dimensions and style.",
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+    image: "/images/service-furniture.webp",
     icon: "furniture",
   },
   {
@@ -47,8 +82,7 @@ export const SERVICES = [
     title: "Kitchen Cabinets",
     description:
       "Solid wood and premium laminate cabinetry with soft-close hardware and perfect finishes.",
-    image:
-      "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80",
+    image: "/images/service-kitchen.webp",
     icon: "kitchen",
   },
   {
@@ -56,8 +90,7 @@ export const SERVICES = [
     title: "Interior Woodwork",
     description:
       "Wall paneling, ceiling beams, built-in shelves, and architectural details that elevate any space.",
-    image:
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+    image: "/images/service-interior.webp",
     icon: "interior",
   },
   {
@@ -65,8 +98,7 @@ export const SERVICES = [
     title: "Doors & Windows",
     description:
       "Custom entry doors, sliding partitions, and window frames with precision joinery.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    image: "/images/service-doors.webp",
     icon: "doors",
   },
   {
@@ -74,8 +106,7 @@ export const SERVICES = [
     title: "Restoration & Repair",
     description:
       "Antique furniture restoration, structural repairs, and refinishing to like-new condition.",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-7f23fd20e123?w=600&q=80",
+    image: "/images/service-repair.webp",
     icon: "repair",
   },
   {
@@ -83,8 +114,7 @@ export const SERVICES = [
     title: "Commercial Fit-Out",
     description:
       "Office reception desks, retail displays, and restaurant interiors delivered on schedule.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
+    image: "/images/service-commercial.webp",
     icon: "commercial",
   },
 ]
@@ -96,64 +126,55 @@ export const GALLERY_ITEMS = [
     id: 1,
     title: "Oak Dining Set",
     category: "Furniture",
-    image:
-      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80",
+    image: "/images/gallery-1.webp",
   },
   {
     id: 2,
     title: "Modern Kitchen",
     category: "Kitchen",
-    image:
-      "https://images.unsplash.com/photo-1556912173-46bfcf36f9f1?w=800&q=80",
+    image: "/images/gallery-2.webp",
   },
   {
     id: 3,
     title: "Living Room Paneling",
     category: "Interior",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    image: "/images/gallery-3.webp",
   },
   {
     id: 4,
     title: "Executive Desk",
     category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80",
+    image: "/images/gallery-4.webp",
   },
   {
     id: 5,
     title: "Walnut Bookshelf",
     category: "Furniture",
-    image:
-      "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=800&q=80",
+    image: "/images/gallery-5.webp",
   },
   {
     id: 6,
     title: "Farmhouse Island",
     category: "Kitchen",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d4046?w=800&q=80",
+    image: "/images/gallery-6.webp",
   },
   {
     id: 7,
     title: "Ceiling Beams",
     category: "Interior",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    image: "/images/gallery-7.webp",
   },
   {
     id: 8,
     title: "Boutique Counter",
     category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+    image: "/images/gallery-8.webp",
   },
   {
     id: 9,
     title: "Custom Wardrobe",
     category: "Furniture",
-    image:
-      "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80",
+    image: "/images/gallery-9.webp",
   },
 ]
 
@@ -161,7 +182,7 @@ export const TESTIMONIALS = [
   {
     name: "Sarah Mitchell",
     role: "Homeowner",
-    text: "MasterWood transformed our kitchen beyond expectations. Every joint is perfect and the team was professional from start to finish.",
+    text: "Brahamani Furniture Shop transformed our kitchen beyond expectations. Every joint is perfect and the team was professional from start to finish.",
     rating: 5,
   },
   {
@@ -173,7 +194,7 @@ export const TESTIMONIALS = [
   {
     name: "Emily Rodriguez",
     role: "Interior Designer",
-    text: "I partner with MasterWood on client projects regularly. Their attention to detail and communication is unmatched in the area.",
+    text: "I partner with Brahamani Furniture Shop on client projects regularly. Their attention to detail and communication is unmatched in the area.",
     rating: 5,
   },
 ]

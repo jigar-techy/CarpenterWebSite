@@ -1,11 +1,13 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { HiMenuAlt3, HiX, HiMoon, HiSun } from "react-icons/hi"
+import { HiMenuAlt3, HiX } from "react-icons/hi"
+import { FaFacebookF, FaInstagram } from "react-icons/fa"
 import { BRAND, NAV_LINKS } from "../data/siteData"
 import { scrollToSection, useScrollSpy } from "../hooks/useScrollSpy"
 import { navItem } from "../utils/motion"
+import Logo from "./Logo"
 
-export default function Navbar({ dark, onToggleTheme }) {
+export default function Navbar({ dark }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const activeId = useScrollSpy(NAV_LINKS.map((l) => l.id))
@@ -56,17 +58,13 @@ export default function Navbar({ dark, onToggleTheme }) {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
-          <img
-            src="/logo.png"
-            alt=""
-            className="h-10 w-10 rounded-lg object-cover ring-2 ring-wood-300/50 group-hover:ring-accent transition-all"
-          />
+          <Logo size="h-11 w-11" title={`${BRAND.shortName} logo`} />
           <div className="text-left hidden sm:block">
-            <span className={`font-display text-xl font-bold tracking-tight ${brandText}`}>
-              {BRAND.name}
+            <span className={`font-display text-lg font-bold tracking-tight leading-tight ${brandText}`}>
+              {BRAND.shortName}
             </span>
             <span className={`block text-[10px] uppercase tracking-widest ${brandSub}`}>
-              Carpentry
+              {BRAND.subtitle}
             </span>
           </div>
         </motion.button>
@@ -95,16 +93,26 @@ export default function Navbar({ dark, onToggleTheme }) {
         </motion.ul>
 
         <div className="flex items-center gap-2">
-          <motion.button
-            type="button"
-            onClick={onToggleTheme}
+          <motion.a
+            href="#"
             className={`p-2.5 rounded-lg transition-colors ${iconBtn}`}
-            aria-label="Toggle dark mode"
-            whileHover={{ rotate: 15 }}
-            whileTap={{ scale: 0.9 }}
+            aria-label="Facebook"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {dark ? <HiSun className="w-5 h-5" /> : <HiMoon className="w-5 h-5" />}
-          </motion.button>
+            <FaFacebookF className="w-4 h-4" />
+          </motion.a>
+          <motion.a
+            href={BRAND.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-2.5 rounded-lg transition-colors ${iconBtn}`}
+            aria-label="Instagram — Brahamani Furniture Shop"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaInstagram className="w-4 h-4" />
+          </motion.a>
           <motion.button
             type="button"
             onClick={() => navTo("contact")}

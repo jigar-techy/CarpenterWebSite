@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#2C1810"/>
-  <path d="M6 22 L16 8 L26 22 Z" fill="#8B5E3C"/>
-  <rect x="14" y="19" width="4" height="7" rx="0.5" fill="#D4A574"/>
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="7" fill="#1a0f0a"/>
+  <g transform="translate(3 6) scale(0.24)">
+    <defs>
+      <linearGradient id="gold" x1="20" y1="2" x2="20" y2="58" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#F8E4A8"/>
+        <stop offset="0.35" stop-color="#E8C06A"/>
+        <stop offset="0.7" stop-color="#C49A3C"/>
+        <stop offset="1" stop-color="#8B6914"/>
+      </linearGradient>
+      <linearGradient id="silver" x1="76" y1="2" x2="76" y2="58" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FFFFFF"/>
+        <stop offset="0.35" stop-color="#D8D8D8"/>
+        <stop offset="0.7" stop-color="#9A9A9A"/>
+        <stop offset="1" stop-color="#4A4A4A"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#gold)" d="M6 4h14c11 0 18 5 18 12 0 5-3 9-9 11 7 1 12 6 12 13 0 9-8 16-21 16H6V4zm12 8v10h6c5 0 8-3 8-7s-3-7-8-7h-6zm0 20v16h7c7 0 11-4 11-9s-4-9-11-9h-7z"/>
+    <path fill="url(#silver)" d="M46 4h42v10H58v14h26v10H58v22H46V4z"/>
+  </g>
 </svg>

@@ -10,6 +10,7 @@ import { FaDoorOpen } from "react-icons/fa"
 import { SERVICES } from "../data/siteData"
 import { scrollToSection } from "../hooks/useScrollSpy"
 import { cardHover, imageZoom, staggerContainer, staggerItem } from "../utils/motion"
+import OptimizedImage from "./OptimizedImage"
 import ScrollReveal from "./ScrollReveal"
 
 const ICONS = {
@@ -61,12 +62,12 @@ export default function Services() {
               >
                 <motion.div variants={cardHover} className="h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
-                    <motion.img
+                    <OptimizedImage
                       src={service.image}
                       alt={service.title}
+                      wrapperClassName="w-full h-full"
                       className="w-full h-full object-cover"
-                      variants={imageZoom}
-                      loading="lazy"
+                      motionProps={{ variants: imageZoom }}
                     />
                     <motion.div
                       className="absolute top-4 left-4 p-3 bg-wood-800/90 rounded-xl text-accent"

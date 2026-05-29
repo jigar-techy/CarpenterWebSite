@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Critical hero assets — same origin, instant load -->
+    <link rel="preload" as="image" href="/images/hero-1-tiny.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero-1.webp" fetchpriority="high" />
+    <link rel="prefetch" as="image" href="/images/hero-2.webp" />
+    <link rel="prefetch" as="image" href="/images/hero-3.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,9 +17,9 @@
     />
     <meta
       name="description"
-      content="MasterWood — Professional carpenter services. Custom furniture, kitchen cabinets, interior woodwork, and commercial fit-outs."
+      content="Brahamani Furniture Shop — Handcrafted furniture, kitchen cabinets, interior woodwork, and commercial fit-outs."
     />
-    <title>MasterWood | Fine Carpentry & Custom Woodwork</title>
+    <title>Brahamani Furniture Shop | Handcrafted Furniture & Custom Woodwork</title>
   </head>
   <body>
     <div id="root"></div>
